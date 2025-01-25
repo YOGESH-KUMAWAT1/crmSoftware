@@ -23,7 +23,7 @@ public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 
-	@GetMapping("/customer/getCustomer/{id}")
+	@GetMapping("/customer/getCustomers/{id}")
 	private ResponseEntity<?> getCustomerDetails(@PathVariable int id) {
 		CustomerResponse employee = customerService.getCustomerById(id);
 		return ResponseEntity.status(HttpStatus.OK).body(employee);
