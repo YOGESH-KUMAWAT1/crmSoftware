@@ -58,8 +58,8 @@ public class CustomerController {
 		}
 	}
 
-	@GetMapping("/getCustomerDetails")
-	private List<Customer> getCustomerDetails(@RequestBody String keyword) {
+	@GetMapping("/getCustomerDetail")
+	private List<Customer> getCustomerDetail(@RequestBody String keyword) {
 		List<Customer> customer = customerService.fetchCustomerByAnyDetail(keyword);
 		return customer;
 	}
