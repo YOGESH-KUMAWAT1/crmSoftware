@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.customer.entity.Customer;
 
-public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
 	List<Customer> findByFirstName(String firstName);
 

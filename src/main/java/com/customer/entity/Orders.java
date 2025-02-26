@@ -1,7 +1,11 @@
 package com.customer.entity;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,37 +20,36 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Address {
+@AllArgsConstructor
+public class Orders {
+
+	enum Package {
+		Jaipur25, Jaipur50, Jaipur1l;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long addressId;
+	@Column(name = "id")
+	private int id;
 
-	public String addressLine1;
+	private String customerName;
 
-	public String addressLine2;
+	private LocalDateTime dateTimeField;
 
-	public String addressLine3;
+	private Date deliveryDate;
 
-	public String city;
+	private Integer quantity;
 
-	public int zipCode;
+	private Long grandTotal;
 
-	public String state;
+	private Long orderDue;
 
-	public String country;
-
-	public String addressType;
-
-	public boolean primaryAddress;
-
-	public boolean status;
+	private boolean paymentStatus;
 
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
 	@JsonBackReference
-	public Customer customer;
+	public Customer customerOrders;
 
 }
